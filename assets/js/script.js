@@ -47,8 +47,32 @@ function stopVideo() {
     player.stopVideo();
 }
 
-function getTrailer(event) {
+function getContent(event) {
     youtubeID = event.target.getAttribute('data-youtube');
+    imdbId = event.target.getAttribute('data-imdb');
+
+    console.log(imdbId);
+
+    omdbUrl = `http://www.omdbapi.com/?i=${imdbId}&plot=full&apikey=6de910de&`;
+
+    fetch(omdbUrl)
+      .then (function (response) {
+        console.log(response);
+        if (response.ok) {
+          response.json().then (function (data) {
+            console.log(data)
+            $('#movie-title').text(data.Title);
+            $('#release-year').text(data.Year);
+            $('#rating').text(data.Rated);
+            $('#runtime').text(`Runtime: ${data.Runtime}`);
+            $('#writer').text(`Writers: ${data.Writer}`);
+            $('#actors').text(`Leading Actors: ${data.Actors}`);
+            $('#plot').text(data.Plot);
+            $('#movie-poster').attr('src', data.Poster);
+          })
+        }
+      }
+    )
 
     $('#player').attr('src', `http://www.youtube.com/embed/${youtubeID}?enablejsapi=1&origin=http://example.com`);
 
@@ -59,4 +83,4 @@ function getTrailer(event) {
 
 $('#player').hide()
 
-$('.video-buttons').on('click', getTrailer);
+$('.video-buttons').on('click', getContent);
