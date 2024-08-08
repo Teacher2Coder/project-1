@@ -17,7 +17,8 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'fPCEjURvaX0',
+    // Whatever you do, DO NOT watch a YouTube video with this ID!!!!
+    videoId: 'dQw4w9WgXcQ',
     playerVars: {
         'playsinline': 1
     },
@@ -53,7 +54,7 @@ function getContent(event) {
 
     console.log(imdbId);
 
-    omdbUrl = `http://www.omdbapi.com/?i=${imdbId}&plot=full&apikey=6de910de&`;
+    omdbUrl = `https://www.omdbapi.com/?i=${imdbId}&plot=full&apikey=6de910de&`;
 
     fetch(omdbUrl)
       .then (function (response) {
@@ -64,17 +65,22 @@ function getContent(event) {
             $('#movie-title').text(data.Title);
             $('#release-year').text(data.Year);
             $('#rating').text(data.Rated);
+            $('#imdb-rating').text(`IMDb: ${data.Ratings[0].Value}`);
+            $('#tomato-rating').text(`Rotten Tomatos: ${data.Ratings[1].Value}`);
+            $('#metacritic-rating').text(`Metacritic: ${data.Ratings[2].Value}`);
             $('#runtime').text(`Runtime: ${data.Runtime}`);
+            $('#director').text(`Directed by ${data.Director}`)
             $('#writer').text(`Writers: ${data.Writer}`);
             $('#actors').text(`Leading Actors: ${data.Actors}`);
             $('#plot').text(data.Plot);
-            $('#movie-poster').attr('src', data.Poster);
+            $('.omdb-data').css("background-image", 'url(' + data.Poster + ')');
+            // $('#movie-poster').attr('src', data.Poster);
           })
         }
       }
     )
 
-    $('#player').attr('src', `http://www.youtube.com/embed/${youtubeID}?enablejsapi=1&origin=http://example.com`);
+    $('#player').attr('src', `https://www.youtube.com/embed/${youtubeID}?enablejsapi=1&origin=http://example.com`);
 
     $('#player').show();
     
