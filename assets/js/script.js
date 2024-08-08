@@ -67,14 +67,13 @@ function getContent(event) {
             $('#rating').text(data.Rated);
             $('#imdb-rating').text(`IMDb: ${data.Ratings[0].Value}`);
             $('#tomato-rating').text(`Rotten Tomatos: ${data.Ratings[1].Value}`);
-            $('#metacritic-rating').text(`Metacritic: ${data.Ratings[2].Value}`);
             $('#runtime').text(`Runtime: ${data.Runtime}`);
             $('#director').text(`Directed by ${data.Director}`)
             $('#writer').text(`Writers: ${data.Writer}`);
             $('#actors').text(`Leading Actors: ${data.Actors}`);
             $('#plot').text(data.Plot);
-            $('.omdb-data').css("background-image", 'url(' + data.Poster + ')');
-            // $('#movie-poster').attr('src', data.Poster);
+            // $('.omdb-data').css("background-image", 'url(' + data.Poster + ')');
+            $('#movie-poster').attr('src', data.Poster);
           })
         }
       }
