@@ -1,7 +1,4 @@
-// Custom JavaScript File
-const videoBtns = $('video-buttons');
-
-
+// This segment of code takes care oft he YouTube API
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -48,20 +45,23 @@ function stopVideo() {
     player.stopVideo();
 }
 
+
+
+
+// Custom JavaScript File
+const videoBtns = $('video-buttons');
+
+// This function collects information for each movie and diplay
 function getContent(event) {
     youtubeID = event.target.getAttribute('data-youtube');
     imdbId = event.target.getAttribute('data-imdb');
-
-    console.log(imdbId);
 
     omdbUrl = `https://www.omdbapi.com/?i=${imdbId}&plot=full&apikey=6de910de&`;
 
     fetch(omdbUrl)
       .then (function (response) {
-        console.log(response);
         if (response.ok) {
           response.json().then (function (data) {
-            console.log(data)
             $('#movie-title').text(data.Title);
             $('#release-year').text(data.Year);
             $('#rating').text(data.Rated);
@@ -74,6 +74,7 @@ function getContent(event) {
             $('#plot').text(data.Plot);
             // $('.omdb-data').css("background-image", 'url(' + data.Poster + ')');
             $('#movie-poster').attr('src', data.Poster);
+            // localStorage.setItem('current-movie', data.Title);
           })
         }
       }
@@ -82,10 +83,59 @@ function getContent(event) {
     $('#player').attr('src', `https://www.youtube.com/embed/${youtubeID}?enablejsapi=1&origin=http://example.com`);
 
     $('#player').show();
+    $('.omdb-data').show();
     
 }
 
+let favoriteStore = JSON.parse(localStorage.getItem('favorites'));
 
-$('#player').hide()
+if (favoriteStore === null) {
+  let newArray = [];
+  localStorage.setItem('favorites', JSON.stringify(newArray))
+};
+
+let favList = document.querySelector('#favorite-movies');
+
+function displayFavorites() {
+  let movieList = JSON.parse(localStorage.getItem('favorites'));
+
+  for (let i = 0; i < movieList.length; i++) {
+    let favMovie = document.createElement('li')
+
+    favMovie.textContent = movieList[i];
+
+    favList.appendChild(favMovie);
+  }
+
+}
+
+function addFavorite() {
+  movie = $('#movie-title');
+
+  favoriteStore.push(movie.text());
+
+  localStorage.setItem('favorites', JSON.stringify(favoriteStore));
+
+  while (favList.lastElementChild) {
+    favList.removeChild(favList.lastElementChild)
+  };
+  displayFavorites();
+}
+
+function clearFavorites() {
+  while (favList.lastElementChild) {
+    favList.removeChild(favList.lastElementChild)
+  };
+  let blankArray = [];
+
+  localStorage.setItem('favorites', JSON.stringify(blankArray));
+  location.reload();
+}
+
+displayFavorites();
+$('#player').hide();
+$('.omdb-data').hide();
 
 $('.video-buttons').on('click', getContent);
+$('#favorite').on('click',addFavorite);
+$('#clear-favs').on('click', clearFavorites);
