@@ -233,6 +233,82 @@ width: 300px; height: 430px;
 background-image: url(https://m.media-amazon.com/images/M/MV5BNzRiMjg0MzUtNTQ1Mi00Y2Q5LWEwM2MtMzUwZDU5NmVjN2NkXkEyXkFqcGc@._V1_SX300.jpg);
 color: white;
 width: 300px; height: 430px;
+}
 
 
+/* .phase-bar {
+    border-bottom: 2px solid white;
+}
+
+button {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+button:hover {
+    border: 1px solid black;
+    color: white;
+    background-color: black;
+} */
+
+.omdb-data {
+    margin: 5%;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+#movie-title {
+    font-size: 300%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#release-year {
+    text-align: center;
+    font-size: 125%;
+}
+
+#rating {
+    text-align: center;
+    font-size: 125%;
+}
+
+#imdb-rating {
+    margin-left: 5%;
+}
+
+#tomato-rating {
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+#runtime {
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+#director {
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+#writer {
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+#actors {
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+#plot {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.visuals {
+    display: flex;
+    align-items: center;
 }
