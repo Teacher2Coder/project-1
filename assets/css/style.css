@@ -404,4 +404,11 @@ button:hover {
     transform: translateY(0px);
   }
 
-  
+  .phase-btns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
