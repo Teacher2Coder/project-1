@@ -84,7 +84,6 @@ function getContent(event) {
 
     $('#player').show();
     $('.omdb-data').show();
-    
 }
 
 let favoriteStore = JSON.parse(localStorage.getItem('favorites'));
@@ -107,6 +106,10 @@ function displayFavorites() {
     favList.appendChild(favMovie);
   }
 
+  if (movieList.length > 0) {
+    $('#favorite-movies').show();
+    $('#clear-favs').show();
+  }
 }
 
 function addFavorite() {
@@ -132,10 +135,13 @@ function clearFavorites() {
   location.reload();
 }
 
-displayFavorites();
 $('#player').hide();
 $('.omdb-data').hide();
+$('#favorite-movies').hide();
+$('#clear-favs').hide();
 
 $('.video-buttons').on('click', getContent);
 $('#favorite').on('click',addFavorite);
 $('#clear-favs').on('click', clearFavorites);
+
+displayFavorites();

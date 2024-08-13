@@ -152,12 +152,9 @@
          <button class="modal-close is-large" aria-label="close"></button></div> 
 
 
-    <iframe id="player" type="text/html" height="350" width="700" frameborder="0">
-
-    </iframe>
-
     <div class="omdb-data">
         <p id="movie-title"></p>
+        <button id="favorite">Add movie to Favorites</button>
         <p id="release-year"></p>
         <p id="rating"></p>
         <p id="imdb-rating"></p>
@@ -168,8 +165,13 @@
         <p id="actors"></p>
         <p id="plot"></p>
         <img id="movie-poster">
+        <iframe id="player" type="text/html" height="350" width="700" frameborder="0"></iframe>
     </div>
 
+    <ul id="favorite-movies">
+      <h3 id="list-title">Your Favorites</h3>
+    </ul>
+    <button id="clear-favs">Clear Your Favorites</button>
         
         <!-- Links to Third Party Scripts -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
