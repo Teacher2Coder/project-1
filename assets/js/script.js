@@ -62,9 +62,12 @@ function getContent(event) {
       .then (function (response) {
         if (response.ok) {
           response.json().then (function (data) {
+            console.log(data);
             $('#movie-title').text(data.Title);
             $('#release-year').text(data.Year);
             $('#rating').text(data.Rated);
+            $('#imdb-id').text(data.imdbID);
+            $('#imdb-id').hide();
             $('#imdb-rating').text(`IMDb: ${data.Ratings[0].Value}`);
             $('#tomato-rating').text(`Rotten Tomatos: ${data.Ratings[1].Value}`);
             $('#runtime').text(`Runtime: ${data.Runtime}`);
@@ -72,9 +75,7 @@ function getContent(event) {
             $('#writer').text(`Writers: ${data.Writer}`);
             $('#actors').text(`Leading Actors: ${data.Actors}`);
             $('#plot').text(data.Plot);
-            // $('.omdb-data').css("background-image", 'url(' + data.Poster + ')');
             $('#movie-poster').attr('src', data.Poster);
-            // localStorage.setItem('current-movie', data.Title);
           })
         }
       }
@@ -89,39 +90,60 @@ function getContent(event) {
 let favoriteStore = JSON.parse(localStorage.getItem('favorites'));
 
 if (favoriteStore === null) {
-  let newArray = [];
-  localStorage.setItem('favorites', JSON.stringify(newArray))
+  let newObject = {
+    movieTitle: [],
+    trailer: [],
+    imdb: [],
+  };
+  localStorage.setItem('favorites', JSON.stringify(newObject))
 };
 
 let favList = document.querySelector('#favorite-movies');
 
+
+// This function will display a list of your favorite Marvel Movies
 function displayFavorites() {
   let movieList = JSON.parse(localStorage.getItem('favorites'));
 
-  for (let i = 0; i < movieList.length; i++) {
+  for (let i = 0; i < movieList.movieTitle.length; i++) {
     let favMovie = document.createElement('li')
 
-    favMovie.textContent = movieList[i];
-
+    favMovie.textContent = movieList.movieTitle[i];
+    favMovie.setAttribute('data-youtube', movieList.trailer[i]);
+    favMovie.setAttribute('data-imdb', movieList.imdb[i]);
+  
     favList.appendChild(favMovie);
   }
 
-  if (movieList.length > 0) {
+  if (movieList.movieTitle.length > 0) {
     $('#favorite-movies').show();
     $('#clear-favs').show();
   }
 }
 
+// This function will allow the user to add movies to their favorites list
 function addFavorite() {
   movie = $('#movie-title');
+  embedURL = $('#player').attr('src');
+  saveYouTube = embedURL.slice(30, -40);
+  console.log(saveYouTube);
+  saveIMDB = $('#imdb-id').text();
+  console.log(saveIMDB);
 
-  favoriteStore.push(movie.text());
+  favoriteStore = JSON.parse(localStorage.getItem('favorites'));
+
+  favoriteStore.movieTitle.push(movie.text());
+  favoriteStore.imdb.push(saveIMDB);
+  favoriteStore.trailer.push(saveYouTube);
 
   localStorage.setItem('favorites', JSON.stringify(favoriteStore));
 
   while (favList.lastElementChild) {
     favList.removeChild(favList.lastElementChild)
   };
+
+  embedURL = $('#player').attr('src');
+
   displayFavorites();
 }
 
@@ -129,9 +151,13 @@ function clearFavorites() {
   while (favList.lastElementChild) {
     favList.removeChild(favList.lastElementChild)
   };
-  let blankArray = [];
+  let blankObject = {
+    movieTitle: [],
+    trailer: [],
+    imdb: [],
+  };
 
-  localStorage.setItem('favorites', JSON.stringify(blankArray));
+  localStorage.setItem('favorites', JSON.stringify(blankObject));
   location.reload();
 }
 
@@ -141,6 +167,7 @@ $('#favorite-movies').hide();
 $('#clear-favs').hide();
 
 $('.video-buttons').on('click', getContent);
+$('#favorite-movies').on('click', getContent);
 $('#favorite').on('click',addFavorite);
 $('#clear-favs').on('click', clearFavorites);
 
