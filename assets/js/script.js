@@ -62,7 +62,6 @@ function getContent(event) {
       .then (function (response) {
         if (response.ok) {
           response.json().then (function (data) {
-            console.log(data);
             $('#movie-title').text(data.Title);
             $('#release-year').text(data.Year);
             $('#rating').text(data.Rated);
@@ -85,6 +84,7 @@ function getContent(event) {
 
     $('#player').show();
     $('.omdb-data').show();
+    $('.omdb-data')[0].scrollIntoView();
 }
 
 let favoriteStore = JSON.parse(localStorage.getItem('favorites'));
@@ -116,8 +116,7 @@ function displayFavorites() {
   }
 
   if (movieList.movieTitle.length > 0) {
-    $('#favorite-movies').show();
-    $('#clear-favs').show();
+    $('#fav-list').show();
   }
 }
 
@@ -126,27 +125,35 @@ function addFavorite() {
   movie = $('#movie-title');
   embedURL = $('#player').attr('src');
   saveYouTube = embedURL.slice(30, -40);
-  console.log(saveYouTube);
   saveIMDB = $('#imdb-id').text();
-  console.log(saveIMDB);
 
   favoriteStore = JSON.parse(localStorage.getItem('favorites'));
 
-  favoriteStore.movieTitle.push(movie.text());
-  favoriteStore.imdb.push(saveIMDB);
-  favoriteStore.trailer.push(saveYouTube);
+  // Checks to see if the movie is already in the list
+  if (Object.values(favoriteStore.movieTitle).indexOf(movie.text()) === -1) {
 
-  localStorage.setItem('favorites', JSON.stringify(favoriteStore));
+    favoriteStore.movieTitle.push(movie.text());
+    favoriteStore.imdb.push(saveIMDB);
+    favoriteStore.trailer.push(saveYouTube);
 
-  while (favList.lastElementChild) {
-    favList.removeChild(favList.lastElementChild)
-  };
+    localStorage.setItem('favorites', JSON.stringify(favoriteStore));
 
-  embedURL = $('#player').attr('src');
+    while (favList.lastElementChild) {
+      favList.removeChild(favList.lastElementChild)
+    };
 
-  displayFavorites();
+    embedURL = $('#player').attr('src');
+
+    displayFavorites();
+    $('#fav-list')[0].scrollIntoView();
+
+  } else {
+    // Displays this alert if the movie is already in the lists
+    window.alert("This movie is already in your favorites");
+  }
 }
 
+// This function clears the favorites list and the localStorage
 function clearFavorites() {
   while (favList.lastElementChild) {
     favList.removeChild(favList.lastElementChild)
@@ -161,14 +168,18 @@ function clearFavorites() {
   location.reload();
 }
 
+// Hides the Video player
 $('#player').hide();
+// Hides the Div containing the data
 $('.omdb-data').hide();
-$('#favorite-movies').hide();
-$('#clear-favs').hide();
+// Hides the favorite's list by default
+$('#fav-list').hide();
 
+// Adds click events
 $('.video-buttons').on('click', getContent);
 $('#favorite-movies').on('click', getContent);
 $('#favorite').on('click',addFavorite);
 $('#clear-favs').on('click', clearFavorites);
 
+// Displays favorites if there are favorites to display
 displayFavorites();
