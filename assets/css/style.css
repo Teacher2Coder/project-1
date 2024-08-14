@@ -412,3 +412,14 @@ button:hover {
     margin-left: 20px;
     margin-right: 20px;
   }
+  .modal-content {
+    width: 1000px;
+  
+  }
+  .box {
+    background-image: url(https://th.bing.com/th/id/OIP.H6jfT7jKfGhJL4UwzvPMGgHaFj?pid=ImgDet&w=474&h=355&rs=1);
+  }
+  #favorite{
+width: 180px;
+height: 50px;
+  }
