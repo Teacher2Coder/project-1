@@ -304,8 +304,24 @@ button:hover {
 #plot {
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 10px;
+}
+
+#movie-poster {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+#player {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .visuals {
@@ -422,6 +438,7 @@ button:hover {
   #favorite{
 width: 180px;
 height: 50px;
+
   }
 
   #fav-list{
@@ -435,3 +452,6 @@ height: 50px;
       list-style-position: inside;
  }
 
+=======
+padding-left: 5%;
+  }
