@@ -33,9 +33,13 @@ If the user clicks on a favorite from the list, information about that movie wil
 If the user wanted to clear their favorites list, they can click the "clear favorites" button and all their favorites will be deleted and will not be shown again when the page is reloaded.
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](./assets/images/main.png)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Phase Modal](./assets/images/modal.png)
+
+![Movie Information](./assets/images/content.png)
+
+![Favorites List](./assets/images/list.png)
 
 ## Features
 
@@ -57,6 +61,7 @@ If the user wanted to clear their favorites list, they can click the "clear favo
  - [readme.so](https://readme.so/editor)
  - [YouTube API](https://developers.google.com/youtube/v3)
  - [OMDB](https://www.omdbapi.com/)
+ - [Bulma CSS Framework](https://bulma.io/)
 
  And a special thank you to UT Austin's Virtual Coding Bootcamp for providing the motivation to take on this task!
 
