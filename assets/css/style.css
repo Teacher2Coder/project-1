@@ -1,4 +1,9 @@
 /* Custom Stylesheet File */
+body{
+min-height: 100vh;
+margin: 0;
+display: grid;grid-template-rows: auto 1fr auto;
+}
 #Iron-Man {
 background-image: url(https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg);
 color: white;
@@ -255,6 +260,7 @@ button:hover {
     margin: 5%;
     border: 3px solid white;
     border-radius: 10px;
+    background-color: #000;
 }
 
 #movie-title {
@@ -451,7 +457,3 @@ height: 50px;
       list-style-type: square;
       list-style-position: inside;
  }
-
-=======
-padding-left: 5%;
-  }
