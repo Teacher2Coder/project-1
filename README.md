@@ -1,45 +1,62 @@
-# project-1
 
-I enjoy JavaScript because it utilizes both Functional programming and Object-oriented programming.
+# Marvel Movie Database
+
+This database displays important information about the movies within the Marvel Cinematic Universe and allows users to store their favorite movies in a list on the application. 
 
 
-<button data-youtube="KAE5ymVLmZg"> "Iron Man"</button>
-<button data-youtube="xbqNb2PFKKA">"The Incredible Hulk"</button>
-<button data-youtube="wKtcmiifycU">"Iron Man 2"</button>
-<button data-youtube="JOddp-nlNvQ">"Thor"</button>
-<button data-youtube="JerVrbLldXw">"Captain America:The First Avenger"</button>
-<button data-youtube="eOrNdBpGMv8">"The Avengers"</button>
-        <h3>"PHASE 2"</h3>
-<button data-youtube="YLorLVa95Xo">"Iron Man 3"</button>
-<button data-youtube="npvJ9FTgZbM">"Thor:The Dark World"</button>
-<button data-youtube="7SlILk2WMTI">"Captain America:The Winter Soldier"</button>
-<button data-youtube="d96cjJhvlMA">"Guardians of the Galaxy"</button>
-<button data-youtube="JAUoeqvedMo">"Avengers:Age of Ultron"</button>
-<button data-youtube="pWdKf3MneyI">"Ant-Man"</button>
-        <h3>"PHASE 3"</h3>
-<button data-youtube="dKrVegVI0Us">"Captain America: Civil War"</button>
-<button data-youtube="Lt-U_t2pUHI">"Doctor Strange"</button>
-<button data-youtube="dW1BIid8Osg">"Guardians of the Galaxy Vol. 2"</button>
-<button data-youtube="rk-dF1lIbIg">"Spider-Man:Homecoming"</button>
-<button data-youtube="ue80QwXMRHg">"Thor:Ragnarok"</button>
-<button data-youtube="dxWvtMOGAhw">"Black Panther"</button>
-<button data-youtube="6ZfuNTqbHE8">"Avengers:Infinity War"</button>
-<button data-youtube="8_rTIAOohas">"Ant-Man And the Wasp"</button>
-<button data-youtube="Z1BCujX3pw8">"Captain Marvel"</button>
-<button data-youtube="TcMBFSGVi1c">"Avengers:Endgame"</button>
-<button data-youtube="Nt9L1jCKGnE">"Spider-Man:Far from Home"</button>
-        <h3>"PHASE 4"</h3>
-<button data-youtube="ybji16u608U">"Black Widow"</button>
-<button data-youtube="giWIr7U1deA">"Shang-Chi and the Legend of the Ten Rings"</button>
-<button data-youtube="x_me3xsvDgk">"Eternals"</button>
-<button data-youtube="JfVOs4VSpmA">"Spider-Man:No Way Home"</button>
-<button data-youtube="aWzlQ2N6qqg">"Doctor Stange in the Multiverse of Madness"</button>
-<button data-youtube="Go8nTmfrQd8">"Thor:Love and Thunder"</button>
-<button data-youtube="_Z3QKkl1WyM">"Black Panther:Wakanda Forever"</button>
-        <h3>"PHASE 5"</h3>
-<button data-youtube="ZlNFpri-Y40">"Ant-Man and the Wasp: Quantumania"</button>
-<button data-youtube="u3V5KDHRQvk">"Guardians of the Galaxy Vol. 3"</button>
-<button data-youtube="wS_qbDztgVY">"The Marvels"</button>
-<button data-youtube="73_1biulkYk">"Deadpool and Wolverine"</button> 
+## Authors
 
+- [@Teacher2Coder](https://www.github.com/Teacher2Coder)
+- [@jocelynnrd](https://www.github.com/jocelynnrd)
+- [@josephruiz18101](https://www.github.com/josephruiz18101)
+- [@lvdean](https://www.github.com/lvdean)
+- [@RinadaSannin](https://www.github.com/RinadaSannin)
+
+
+
+## Installation
+
+No installation required!
+    
+## Usage
+
+When the user opens the page for the first time, they will be greated by a searchbar and five cards that represent the five phases of MCU movies.
+
+If the user searches a movie in the searchbar, information about the movie will appear such as the director, the writers, actors, plot, etc.
+
+If the user clicks a phase card, all movies associated with that phase are displayed, and if the user clicks on one of the movies, the same information about the movie will be displayed.
+
+If the user really likes the movie that they are seeing information for, they can add it to their favorite's list. When they close the page and open it again, their favorites will be retained.
+
+If the user clicks on a favorite from the list, information about that movie will be displayed similarly to the previous two uses.
+
+If the user wanted to clear their favorites list, they can click the "clear favorites" button and all their favorites will be deleted and will not be shown again when the page is reloaded.
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+## Features
+
+- Searchbar
+- Animated cards
+- Storage of Favorite Information
+- Plays YouTube videos
+
+
+
+## Roadmap
+
+- More movies will be added as more MCU movies come out
+- Additional Marvel Movie Universes (Fox, Sony, etc.) will be added
+
+
+## Acknowledgements
+
+ - [readme.so](https://readme.so/editor)
+ - [YouTube API](https://developers.google.com/youtube/v3)
+ - [OMDB](https://www.omdbapi.com/)
+
+ And a special thank you to UT Austin's Virtual Coding Bootcamp for providing the motivation to take on this task!
 
