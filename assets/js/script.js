@@ -115,6 +115,8 @@ function displayFavorites() {
   
     favList.appendChild(favMovie);
   }
+  $('#clear-favs').addClass('button')
+  $('#clear-favs').addClass('is-danger')
 
   if (movieList.movieTitle.length > 0) {
     $('#fav-list').show();
