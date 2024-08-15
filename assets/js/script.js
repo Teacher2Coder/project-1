@@ -111,6 +111,7 @@ function displayFavorites() {
     favMovie.textContent = movieList.movieTitle[i];
     favMovie.setAttribute('data-youtube', movieList.trailer[i]);
     favMovie.setAttribute('data-imdb', movieList.imdb[i]);
+    favMovie.classList.add('button');
   
     favList.appendChild(favMovie);
   }
