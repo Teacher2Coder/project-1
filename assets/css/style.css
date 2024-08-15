@@ -485,3 +485,53 @@ li {
 #clear-favs {
   margin-bottom: 5px;
 }
+
+
+ 
+/* searchbar */
+.searchbar .searchinput {
+  position: relative;
+};
+
+
+
+
+.searchbar{
+  padding :20px;
+  border-radius: 7px;
+}
+
+.autocomplete-list{
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-height: 200px !important;
+  overflow-y: auto !important;;
+  background-color: hsl(var(--bulma-dark-h),var(--bulma-dark-s),var(--bulma-dark-l));
+  border-radius: 7px;
+}
+
+
+ 
+
+#mcu-movies li{
+  color: #fff;
+  padding: 8px 15px 8px 15px;
+  width: calc(100% - 30px);
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+
+#mcu-movies li:hover{
+  background: #878484b8;
+}
+
+.autocomplete-list.show {
+  display:block;
+}
+
+
+

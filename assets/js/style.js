@@ -62,3 +62,60 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+// Function for search bar
+
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('dropdownInput');
+  const dropdown = document.getElementById('mcu-movies');
+
+// sort items in dropdown list in alabetical order
+  function sortList(ul) {
+    var ul = document.getElementById(ul);
+  
+    Array.from(ul.getElementsByTagName("LI"))
+      .sort((a, b) => a.textContent.localeCompare(b.textContent))
+      .forEach(li => ul.appendChild(li));
+  }
+  
+  sortList("mcu-movies");
+
+  function filterFunction() {
+      const filter = input.value.toUpperCase();
+      const items = dropdown.getElementsByTagName('button');
+
+      // Show the dropdown movies
+      dropdown.classList.add('show');
+
+      // Loop through all items, and hide those who don't match the search query
+      Array.from(items).forEach(item => {
+          if (item.textContent.toUpperCase().indexOf(filter) > -1) {
+              item.parentElement.style.display = '';
+          } else {
+              item.parentElement.style.display = 'none';
+          }
+      });
+  }
+
+  function closeDropdown(event) {
+      if (!event.target.matches('#dropdownInput')) {
+          dropdown.classList.remove('show');
+      }
+  }
+ 
+
+  // Attach the filterFunction to the input event
+  input.addEventListener('keyup', filterFunction);
+
+  // Close the dropdown if clicked outside the menu
+  window.addEventListener('click', closeDropdown,);
+
+  // Close the dropdown when an movie choice is clicked
+  dropdown.addEventListener('click', function(event) {
+      if (event.target.tagName === 'BUTTON') {
+          dropdown.classList.remove('show');
+      }
+      // clear data?
+      input.reset();
+  });
+});
