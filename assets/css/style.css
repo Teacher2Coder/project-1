@@ -445,7 +445,7 @@ height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
     margin-top: 30px;
     border: 1px solid white;
@@ -458,6 +458,8 @@ height: 50px;
 
   ul {
       /* padding-left: 2rem; */
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       list-style-type: square;
       list-style-position: inside;
@@ -466,6 +468,8 @@ height: 50px;
 li {
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #clear-favs {
