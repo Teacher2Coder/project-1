@@ -448,12 +448,36 @@ height: 50px;
   }
 
   #fav-list{
-    padding-top: 5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
+  #list-title {
+    font-size: 200%;
   }
 
   ul {
-      padding-left: 2rem;
+      /* padding-left: 2rem; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       list-style-type: square;
       list-style-position: inside;
  }
+
+li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#clear-favs {
+  margin-bottom: 5px;
+}
