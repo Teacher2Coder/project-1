@@ -3,6 +3,8 @@ body{
 min-height: 100vh;
 margin: 0;
 display: grid;grid-template-rows: auto 1fr auto;
+background-repeat: no-repeat;
+    background-size: cover;
 }
 #Iron-Man {
 background-image: url(https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg);
