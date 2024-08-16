@@ -116,6 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
           dropdown.classList.remove('show');
       }
       // clear data?
-      input.reset();
+      input.value = "";
   });
 });
